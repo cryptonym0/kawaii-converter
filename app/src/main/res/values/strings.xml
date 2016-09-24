@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">kawaii-converter</string>
+    <string name="app_name">Kawaii Unit Converter</string>
+    <string name="fr">From</string>
+    <string name="to">To</string>
+    <string name="va">Value</string>
+    <string name="fah">Fahrenheit</string>
+    <string name="cel">Celsius</string>
+    <string name="con">Convert</string>
+    <string name="ref">Refresh</string>
+    <string name="res">Results</string>
+    <string name="entVal">Enter A Value</string>
 </resources>

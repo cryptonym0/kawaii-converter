@@ -12,5 +12,89 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/fr"
+        android:id="@+id/fromLabel"
+        android:layout_marginTop="40dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/valueLabel"
+        android:layout_alignEnd="@+id/valueLabel" />
+
+    <TextView
+        android:text="@string/va"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/valueLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_below="@+id/toLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:text="@string/to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:id="@+id/toLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_below="@+id/fromLabel"
+        android:layout_alignLeft="@+id/fromLabel"
+        android:layout_alignStart="@+id/fromLabel"
+        android:layout_alignRight="@+id/valueLabel"
+        android:layout_alignEnd="@+id/valueLabel" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fromLabel"
+        android:layout_toRightOf="@+id/fromLabel"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:id="@+id/unitASpinner"
+        android:layout_alignTop="@+id/fromLabel" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/unitBSpinner"
+        android:layout_alignTop="@+id/toLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/toLabel"
+        android:layout_alignLeft="@+id/unitASpinner"
+        android:layout_alignStart="@+id/unitASpinner" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_alignBottom="@+id/valueLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editText"
+        android:layout_alignLeft="@+id/unitBSpinner"
+        android:layout_alignStart="@+id/unitBSpinner"
+        android:hint="@string/entVal"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="@string/con"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/valueLabel"
+        android:layout_alignLeft="@+id/toLabel"
+        android:layout_alignStart="@+id/toLabel"
+        android:layout_marginTop="39dp"
+        android:id="@+id/convertButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/refreshButton"
+        android:layout_alignBottom="@+id/convertButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/ref" />
 </RelativeLayout>
