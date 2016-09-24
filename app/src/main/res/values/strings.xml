@@ -3,10 +3,14 @@
     <string name="fr">From</string>
     <string name="to">To</string>
     <string name="va">Value</string>
-    <string name="fah">Fahrenheit</string>
-    <string name="cel">Celsius</string>
     <string name="con">Convert</string>
     <string name="ref">Refresh</string>
     <string name="res">Results</string>
     <string name="entVal">Enter A Value</string>
+    <string name="f">Fahrenheit</string>
+    <string name="c">Celsius</string>
+    <string-array name="tempValue">
+        <item>Fahrenheit</item>
+        <item>Celsius</item>
+    </string-array>
 </resources>
