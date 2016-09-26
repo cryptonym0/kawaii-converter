@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -50,7 +52,11 @@ public class MainActivity extends AppCompatActivity {
         f = spin1.getItemAtPosition(0).toString();
         c = spin1.getItemAtPosition(1).toString();
 
-//        ada1 = spin1.setAdapter();
+        ArrayAdapter<CharSequence> ada1 = ArrayAdapter.createFromResource(this, R.array.tempValue, android.R.layout.simple_spinner_item);
+        ada1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Set Spinner Adapters
+        spin1.setAdapter(ada1);
+        spin2.setAdapter(ada1);
 
         //On Click Listen
         convertBtn.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //On Spinner Change Listener
-//        spin1.setOnItemSelectListener(new Ada)
+//        spin1Adapter.setOnItemSelectListener(new Adapter(ada1))
     }
 
     public void updateResults(){
