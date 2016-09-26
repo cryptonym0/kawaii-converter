@@ -10,6 +10,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.t00055219.kawaii_converter.MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,8 +89,6 @@
         android:layout_below="@+id/valueLabel"
         android:layout_alignLeft="@+id/toLabel"
         android:layout_alignStart="@+id/toLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textSize="24sp"
         android:textColor="@color/colorAccent" />
 
@@ -119,4 +130,5 @@
         android:layout_above="@+id/valueLabel"
         android:layout_toRightOf="@+id/toLabel"
         android:layout_toEndOf="@+id/toLabel" />
+
 </RelativeLayout>
