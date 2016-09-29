@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ import static com.example.t00055219.kawaii_converter.R.string.f;
 public class MainActivity extends AppCompatActivity {
     //Declare Global Variables
     Double results;
-    Button convertBtn;
+    Button clearBtn;
     Spinner spin1, spin2;
     TextView output;
     EditText input;
@@ -42,27 +43,49 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initialize all variables
-        convertBtn = (Button) findViewById(R.id.convertButton);
-        spin1 = (Spinner)findViewById(R.id.unitASpinner);
-        spin2 = (Spinner) findViewById(R.id.unitBSpinner);
+        clearBtn = (Button) findViewById(R.id.convertButton);
         output = (TextView) findViewById(R.id.resultsLabel);
         input = (EditText) findViewById(R.id.editText1);
+        spin1 = (Spinner)findViewById(R.id.unitASpinner);
+        spin2 = (Spinner) findViewById(R.id.unitBSpinner);
 
         //Turn Input Into Double
         f = spin1.getItemAtPosition(0).toString();
         c = spin1.getItemAtPosition(1).toString();
 
-        ArrayAdapter<CharSequence> ada1 = ArrayAdapter.createFromResource(this, R.array.tempValue, android.R.layout.simple_spinner_item);
-        ada1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Set Spinner Adapters
-        spin1.setAdapter(ada1);
-        spin2.setAdapter(ada1);
+        spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                updateResults();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    updateResults();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         //On Click Listen
-        convertBtn.setOnClickListener(new View.OnClickListener() {
+        clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateResults();
+                input.setText("");
+                output.setText("");
             }
         });
 
@@ -84,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //On Spinner Change Listener
-//        spin1Adapter.setOnItemSelectListener(new Adapter(ada1))
     }
 
     public void updateResults(){
