@@ -22,6 +22,11 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import static android.R.attr.button;
 import static android.R.attr.onClick;
 import static com.example.t00055219.kawaii_converter.R.string.c;
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     EditText input;
     Double temp;
     String a, b, f, c, i;
+    DecimalFormat two = new DecimalFormat("0.00");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,30 +123,30 @@ public class MainActivity extends AppCompatActivity {
         //If empty input
         if (i.isEmpty()) {
             if (a.equals(b)) {
-                Toast.makeText(getApplicationContext(), "No Calculations Needed!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "No Calculations Needed!", Toast.LENGTH_SHORT).show();
                 output.setText("");
             } else if (!a.equals(b)) {
-                Toast.makeText(getApplicationContext(), "Please Enter A Value!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please Enter A Value!", Toast.LENGTH_SHORT).show();
                 output.setText("null");
             }
         } else {
             if (a.equals(b)) {
-                Toast.makeText(getApplicationContext(), "Both Values Are The Same!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Both Values Are The Same!", Toast.LENGTH_SHORT).show();
                 results = Double.parseDouble(i);
                 output.setText(results.toString());
             }
             else if (a.equals(f)) {
                 temp = Double.parseDouble(i);
                 results = (temp - 32) * 5 / 9;
-                output.setText(results.toString());
+                output.setText(two.format(results).toString());
             }
             else if (a.equals(c)) {
                 temp = Double.parseDouble(i);
                 results = (temp * 9 / 5) + 32;
-                output.setText(results.toString());
+                output.setText(two.format(results).toString());
             }
             else {
-                Toast.makeText(getApplicationContext(), "Something Went Wrong.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Something Went Wrong.", Toast.LENGTH_SHORT).show();
             }
         }
     };
